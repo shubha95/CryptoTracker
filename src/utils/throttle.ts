@@ -18,30 +18,10 @@
  * - We want regular updates, not just when data stops
  * - Users expect to see prices changing at predictable intervals
  * - Prevents UI thrashing while maintaining perceived real-time updates
- * 
- * INTERVIEW TALKING POINT:
- * "I chose throttling over debouncing because we need consistent, periodic updates.
- * Debouncing would only show updates after data stops flowing, which isn't suitable
- * for a real-time tracker. Throttling ensures smooth UI updates at 1-second intervals
- * while the WebSocket receives data every 250ms, preventing unnecessary renders
- * that would drain battery and hurt performance."
- */
 
 /**
  * Creates a throttled function that only invokes the provided function
  * at most once per specified time period.
- * 
- * @param func - Function to throttle
- * @param delay - Minimum time between invocations (in milliseconds)
- * @returns Throttled function
- * 
- * @example
- * const throttledUpdate = throttle(() => {
- *   console.log('Updated!');
- * }, 1000);
- * 
- * // Called rapidly, but only logs once per second
- * setInterval(throttledUpdate, 100);
  */
 export function throttle<T extends (...args: any[]) => any>(
   func: T,

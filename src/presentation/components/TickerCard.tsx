@@ -21,13 +21,6 @@
  * - useMemo to prevent unnecessary recalculations
  * - Separate animated components to isolate re-renders
  * - Optimized useEffect dependencies
- * 
- * INTERVIEW TALKING POINT:
- * "I used React Native Reanimated for the price change animations because it
- * runs on the UI thread, ensuring smooth 60 FPS animations even when JavaScript
- * is busy processing WebSocket updates. The color flash provides immediate
- * visual feedback for price movements, enhancing user experience. The animation
- * is subtle enough to not distract but clear enough to catch the eye."
  */
 
 import React, { useEffect, useMemo } from 'react';

@@ -17,13 +17,6 @@
  * - Reconnection logic is testable and reusable
  * - Event-driven architecture allows multiple consumers
  * - Resource management (connection cleanup) is centralized
- * 
- * INTERVIEW TALKING POINT:
- * "I designed the WebSocket client as an independent infrastructure component.
- * It handles all connection resilience internally, exposing a simple callback interface.
- * This separation allows the business logic to remain clean and focused on data processing
- * rather than network concerns. The automatic reconnection with exponential backoff
- * ensures the app remains functional even with intermittent network issues."
  */
 
 import { ReconnectPolicy } from './ReconnectPolicy';

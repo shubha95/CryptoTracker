@@ -36,13 +36,7 @@ export interface BinanceTickerData {
 }
 
 /**
- * Transforms raw Binance data into our domain model
- * 
- * WHY: Separates infrastructure concerns from domain logic.
- * The domain should not know about external data formats.
- * 
- * @param data - Raw Binance WebSocket data
- * @returns Normalized Ticker domain model
+ * Transforms raw Binance data into our domain model 
  */
 export function mapBinanceDataToTicker(data: BinanceTickerData): Ticker {
   return {

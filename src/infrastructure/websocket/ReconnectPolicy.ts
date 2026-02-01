@@ -11,11 +11,6 @@
  * - Increases success probability by giving server time to recover
  * - Industry standard for resilient network connections
  * 
- * INTERVIEW TALKING POINT:
- * "I implemented exponential backoff to handle network instability gracefully.
- * This prevents hammering the server during outages and implements best practices
- * for production WebSocket connections. The jitter prevents synchronized reconnection
- * attempts from multiple clients."
  */
 
 export interface ReconnectConfig {
@@ -46,11 +41,9 @@ export class ReconnectPolicy {
 
   /**
    * Get the next reconnection delay
-   * 
    * Formula: delay = min(initialDelay * (multiplier ^ attempt), maxDelay)
    * With jitter: delay = delay * (0.5 + random(0, 0.5))
-   * 
-   * @returns Delay in milliseconds before next reconnection attempt
+
    */
   getNextDelay(): number {
     if (this.currentAttempt >= this.config.maxAttempts) {

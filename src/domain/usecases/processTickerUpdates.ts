@@ -25,9 +25,6 @@ export interface ProcessTickerResult {
 
 /**
  * Validates and processes raw ticker data from WebSocket
- * 
- * @param rawData - Raw message from Binance WebSocket
- * @returns Processed result with validation status
  */
 export function processTickerUpdate(rawData: any): ProcessTickerResult {
   // Validate message structure

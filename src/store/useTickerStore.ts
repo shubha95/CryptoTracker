@@ -26,12 +26,7 @@
  *    - Separate connection status for UI feedback
  *    - Error state for user notifications
  * 
- * INTERVIEW TALKING POINT:
- * "I implemented a batching mechanism that accumulates rapid WebSocket updates
- * and flushes them to the UI state only once per second. This prevents UI thrashing
- * where components re-render 4-5 times per second, which would drain battery and
- * cause frame drops. The batching happens in the store layer, keeping the business
- * logic and UI components clean and unaware of this optimization."
+
  */
 
 import { create } from 'zustand';
@@ -72,9 +67,6 @@ interface TickerState {
 
 // WebSocket instance (singleton pattern)
 let wsClient: BinanceWS | null = null;
-
-// Batch buffer for accumulating updates
-let updateBatch: Ticker[] = [];
 
 export const useTickerStore = create<TickerState>()((set, get) => {
   /**

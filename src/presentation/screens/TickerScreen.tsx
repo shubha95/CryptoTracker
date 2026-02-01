@@ -22,13 +22,7 @@
  * 2. WebSocket receives data → Store batches updates
  * 3. Store flushes batch every 1000ms → Component re-renders
  * 4. FlashList efficiently updates only changed items
- * 
- * INTERVIEW TALKING POINT:
- * "I chose FlashList over FlatList because it uses a recycling mechanism that
- * significantly reduces memory usage and improves scroll performance. With 10
- * items updating every second, traditional FlatList would struggle, but FlashList
- * handles it smoothly. Combined with our batching strategy, the list updates
- * feel instantaneous while maintaining 60 FPS scroll performance."
+ 
  */
 
 import React, { useEffect } from 'react';
